@@ -13,7 +13,7 @@ class SurveyController {
 
     await surveyRepository.save(survey);
 
-    res.status(200).json({ survey })
+    res.status(201).json(survey)
   }
 
   async list(req: Request, res: Response) {
@@ -22,7 +22,7 @@ class SurveyController {
 
     const surveys = await surveyRepository.find();
 
-    res.status(200).json({ surveys });
+    res.status(200).json(surveys);
   }
 }
 
