@@ -6,11 +6,10 @@ class AnswerController {
 
   async execute(req: Request, res: Response) {
     const { value } = req.params;
-    const { u } = req.query;
-    console.log(u)
+    const { survey } = req.query;
     const surveysUsersRepository = getCustomRepository(SurveysUsersRepository)
     const surveyUser = await surveysUsersRepository.findOne({
-      id: String(u),
+      id: String(survey),
     });
 
     if (!surveyUser) {
