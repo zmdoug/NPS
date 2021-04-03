@@ -13,7 +13,7 @@ class NpsController {
    */
   async execute(req: Request, res: Response) {
     const { survey_id } = req.params;
-
+    console.log(survey_id)
     const surveysUsersRepository = getCustomRepository(SurveysUsersRepository);
 
     const surveyUsers = await surveysUsersRepository.find({
@@ -35,7 +35,7 @@ class NpsController {
 
     const totalAnswers = surveyUsers.length;
 
-    const nps = Number((((promoters - (detractors) / totalAnswers)) * 100).toFixed(2));
+    const nps = Number((((promoters - detractors) / totalAnswers) * 100).toFixed(2));
 
     return res.status(200).json({
       detractors,
