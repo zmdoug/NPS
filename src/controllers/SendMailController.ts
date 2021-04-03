@@ -36,7 +36,7 @@ class SendMailController {
         name: user.name,
         title: survey.title,
         description: survey.description,
-        link: `${process.env.URL_MAIL}/answers`,
+        link: `${process.env.URL_MAIL || process.env.VERCEL_URL}/answers`,
         survey_id: surveyUserAlreadyExists?.id
       };
 
